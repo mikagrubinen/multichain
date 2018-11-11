@@ -25,6 +25,9 @@ username = 'miro'
 # to see publish history made with key "liststreamkeyitems stream5 key1"
 # to see only last updated fields "getstreamkeysummary stream5 key1 jsonobjectmerge,ignoreother"
 
-# fetch data and prints one of them with key 'json'
-# a = commands.fetch(blockchain, stream_name, username)
-# print(a['json']['city'])
+# fetch data for username from a stream
+# fetched_data = commands.fetch(blockchain, stream_name, username)
+
+# prints one of parameters (eg. email) with help of key 'json'. First need to fetch_data
+# param = 'email'
+# value = do.get_value(fetched_data, param)

@@ -18,10 +18,16 @@ def add_new_user(blockchain, stream_name, data):
 		user_key[username] = key 
 		commands.publish(blockchain, stream_name, key, data)
 	
-# retrieve user key based on username
+# retrieve user key from 'user_key' based on username (used after login)
 def get_user_key(username):
 	if username in user_key:
 		return user_key[username]
+
+# After fetch from stream, return a value from received dict based on key in dict. 
+# @param - 'username', 'wallet', 'balance', 'email' and so on
+def get_value(fetched_data, param):
+	# if param in fetched_data:
+	return fetched_data['json'][param]
 
 
 
