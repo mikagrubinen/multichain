@@ -29,3 +29,8 @@ def liststreamitems(blockchain_name, stream_name):
 	subscribe(blockchain_name, stream_name)
 	msg = "multichain-cli " + blockchain_name + " liststreamitems " + stream_name
 	subprocess.call(msg, shell=True)
+
+# publish json data to stream
+def publish(blockchain_name, stream_name, key, data=""):
+	msg = "multichain-cli " + blockchain_name + " publish " + stream_name + " " + key + " \'{\"json\":" + json.dumps(data) + "}\'"
+	subprocess.call(msg, shell=True)
