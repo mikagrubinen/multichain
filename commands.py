@@ -1,5 +1,6 @@
 import subprocess
 import json
+import do
 
 def subscribe(blockchain_name, stream_name):
 	msg = "multichain-cli " + blockchain_name + " subscribe " + stream_name
@@ -34,3 +35,10 @@ def liststreamitems(blockchain_name, stream_name):
 def publish(blockchain_name, stream_name, key, data=""):
 	msg = "multichain-cli " + blockchain_name + " publish " + stream_name + " " + key + " \'{\"json\":" + json.dumps(data) + "}\'"
 	subprocess.call(msg, shell=True)
+
+# fetch last updated data related to specified key and return as dict
+def fetch(blockchain_name, stream_name, username):
+	key = do.get_user_key(username)
+	msg = "multichain-cli " + blockchain_name + " getstreamkeysummary " + stream_name + " " + key + " jsonobjectmerge,ignoreother"
+	result = subprocess.check_output(msg, shell = True)
+	return json.loads(result)

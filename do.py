@@ -1,8 +1,11 @@
 import commands
 import json
 
+# function add_new_user() will fill user_key with username and unique key for that usernamae
+user_key = {'miro' : 'key1', 'mire' : "key2"}
+
 # @param data - dictionary with mandatory keys 'username', 'email address', 'wallet'
-def add_new_user(blockchain, stream_name, user_key, data):
+def add_new_user(blockchain, stream_name, data):
 
 	username = data['username']
 	# check if usermane is already taken
@@ -15,7 +18,10 @@ def add_new_user(blockchain, stream_name, user_key, data):
 		user_key[username] = key 
 		commands.publish(blockchain, stream_name, key, data)
 	
-
+# retrieve user key based on username
+def get_user_key(username):
+	if username in user_key:
+		return user_key[username]
 
 
 
