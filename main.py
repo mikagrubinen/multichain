@@ -16,7 +16,7 @@ data1 = {'balance' : 65}
 # commands.createstream(blockchain, stream_name)
 # commands.subscribe(blockchain, stream_name)
 # commands.liststreamitems(blockchain, stream_name)
-# commands.publish(blockchain, stream_name, "key1", data1)
+# commands.publish(blockchain, stream_name, key, data)
 
 # do.add_new_user(blockchain, stream_name, user_key, data)
 

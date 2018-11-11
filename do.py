@@ -1,8 +1,7 @@
 import commands
 import json
 
-# @param data - dictionary with mandatory keys 
-# 'username', 'email address', 'wallet'
+# @param data - dictionary with mandatory keys 'username', 'email address', 'wallet'
 def add_new_user(blockchain, stream_name, user_key, data):
 
 	username = data['username']
