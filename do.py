@@ -24,10 +24,13 @@ def get_user_key(username):
 		return user_key[username]
 
 # After fetch from stream, return a value from received dict based on key in dict. 
-# @param - 'username', 'wallet', 'balance', 'email' and so on
+# @param fetched_data - dict retrieved after fetch_data is called
+# @param param - 'username', 'wallet', 'balance', 'email' and so on
 def get_value(fetched_data, param):
-	# if param in fetched_data:
-	return fetched_data['json'][param]
+	for key, value in fetched_data.iteritems():
+		for sk, sv in value.iteritems():
+			if sk == param:
+				return sv
 
 
 

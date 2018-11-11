@@ -20,6 +20,8 @@ username = 'miro'
 # commands.publish(blockchain, stream_name, key, data)
 
 # do.add_new_user(blockchain, stream_name, data)
+
+# to retrieve unique key based on username (after login)
 # do.get_user_key(username)
 
 # to see publish history made with key "liststreamkeyitems stream5 key1"
@@ -31,3 +33,7 @@ username = 'miro'
 # prints one of parameters (eg. email) with help of key 'json'. First need to fetch_data
 # param = 'email'
 # value = do.get_value(fetched_data, param)
+
+# Why do we need private blockchain? 
+# Keep track of everything because public networks are not safe
+# and they can be attacked by hackers to steal data and assets
