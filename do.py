@@ -22,6 +22,8 @@ def add_new_user(blockchain, stream_name, data):
 def get_user_key(username):
 	if username in user_key:
 		return user_key[username]
+	else:
+		return 'nouser'
 
 # After fetch from stream, return a value from received dict based on key in dict. 
 # @param fetched_data - dict retrieved after fetch_data is called
