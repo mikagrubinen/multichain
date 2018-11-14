@@ -2,4 +2,4 @@
 
 filename = 'user_key.txt'
 blockchain = 'cmpe'
-stream_hex = 'stream98'
+stream_hex = 'stream10'
