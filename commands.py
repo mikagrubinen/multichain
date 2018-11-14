@@ -1,6 +1,7 @@
 import subprocess
 import json
 import do
+import globalVars
 
 def subscribe(blockchain_name, stream_name):
 	msg = "multichain-cli " + blockchain_name + " subscribe " + stream_name
@@ -42,3 +43,24 @@ def fetch(blockchain_name, stream_name, username):
 	msg = "multichain-cli " + blockchain_name + " getstreamkeysummary " + stream_name + " " + key + " jsonobjectmerge,ignoreother"
 	result = subprocess.check_output(msg, shell = True)
 	return json.loads(result)
+
+# Fetchs keys from stream
+def liststreamkeys(blockchain_name, user_key_stream):
+	msg = "multichain-cli " + blockchain_name + " liststreamkeys " + user_key_stream
+	result = subprocess.check_output(msg, shell = True)
+	return json.loads(result)
+
+# this function publishes hex to the stream with key0
+def publish_hex(hex_value):
+	msg = "multichain-cli " + globalVars.blockchain + " publish " + globalVars.stream_hex + " key0 " + hex_value
+	subprocess.call(msg, shell=True)
+
+# this function returns last data in hex format, from user_key stream
+def return_hex():
+	msg = "multichain-cli " + globalVars.blockchain + " liststreamitems " + globalVars.stream_hex + " false 1"
+	result = subprocess.check_output(msg, shell = True)
+	result = json.loads(result)
+	return result[0]["data"]
+	# for item in result:
+	# print(item["data"])
+
